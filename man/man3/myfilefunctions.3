@@ -1,0 +1,24 @@
+.TH MYFILEFUNCTIONS 3 "2026" "libmyutils" "Library Functions Manual"
+.SH NAME
+count_lines, count_words, count_pattern \- file processing functions
+.SH SYNOPSIS
+.nf
+.B #include \(dqmyfilefunctions.h\(dq
+.sp
+.B int count_lines(const char *filename);
+.B int count_words(const char *filename);
+.B int count_pattern(const char *filename, const char *pattern);
+.fi
+.SH DESCRIPTION
+.B count_lines
+returns the number of lines in a file.
+.PP
+.B count_words
+returns the number of words in a file.
+.PP
+.B count_pattern
+returns how many times a pattern appears in a file.
+.SH RETURN VALUE
+All three functions return \-1 if the file cannot be opened.
+.SH SEE ALSO
+mystrfunctions(3)

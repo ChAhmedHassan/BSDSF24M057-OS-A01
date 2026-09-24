@@ -1,0 +1,30 @@
+.TH MYSTRFUNCTIONS 3 "2026" "libmyutils" "Library Functions Manual"
+.SH NAME
+mystrlen, mystrcpy, mystrcat, mystrcmp, mystrrev \- custom string functions
+.SH SYNOPSIS
+.nf
+.B #include \(dqmystrfunctions.h\(dq
+.sp
+.B int mystrlen(const char *s);
+.B char *mystrcpy(char *dest, const char *src);
+.B char *mystrcat(char *dest, const char *src);
+.B int mystrcmp(const char *a, const char *b);
+.B void mystrrev(char *s);
+.fi
+.SH DESCRIPTION
+.B mystrlen
+returns the length of a string.
+.PP
+.B mystrcpy
+copies src into dest.
+.PP
+.B mystrcat
+appends src to the end of dest.
+.PP
+.B mystrcmp
+compares two strings and returns 0 if they are equal.
+.PP
+.B mystrrev
+reverses a string in place.
+.SH SEE ALSO
+myfilefunctions(3)
