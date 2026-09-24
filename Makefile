@@ -1,23 +1,21 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude
-AR = ar
 
 LIB_OBJS = obj/mystrfunctions.o obj/myfilefunctions.o
-LIB = lib/libmyutils.a
+LIB = lib/libmyutils.so
 
-all: bin/client_static
+all: bin/client_dynamic
 
 obj/%.o: src/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -fPIC -c $< -o $@
 
 $(LIB): $(LIB_OBJS)
-	$(AR) rcs $@ $^
-	ranlib $@
+	$(CC) -shared -o $@ $^
 
-bin/client_static: obj/main.o $(LIB)
+bin/client_dynamic: obj/main.o $(LIB)
 	$(CC) obj/main.o -Llib -lmyutils -o $@
 
 clean:
-	rm -f obj/*.o lib/*.a bin/client_static
+	rm -f obj/*.o lib/*.so bin/client_dynamic
 
 .PHONY: all clean
