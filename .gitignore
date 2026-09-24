@@ -1,0 +1,7 @@
+bin/client
+bin/client_static
+bin/client_dynamic
+obj/*.o
+lib/*.a
+lib/*.so
+
