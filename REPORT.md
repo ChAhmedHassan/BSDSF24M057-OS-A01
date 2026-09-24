@@ -7,6 +7,12 @@
 
 ---
 
+## Feature 1: Project Scaffolding
+
+**Summary:** The project was created with the folders `include`, `src`, `lib`, `bin`, `obj` and `man/man3`, plus `Makefile` and `REPORT.md`, and pushed to the `main` branch of the GitHub repository `BSDSF24M057-OS-A01`. Empty folders are kept in Git using `.gitkeep` files.
+
+---
+
 ## Feature 2: Multi-file Build
 
 ### Q1. What is the difference between the Makefile rule for building an executable directly from source files and the rules for linking against a library?
@@ -52,3 +58,9 @@
 ### Q3. What is LD_LIBRARY_PATH and what does the dynamic loader do?
 
 **Ans:** LD_LIBRARY_PATH is an environment variable that lists extra folders where the dynamic loader searches for shared libraries. When client_dynamic starts, the loader finds and loads libmyutils.so. Without the path, it failed with "cannot open shared object file". After exporting LD_LIBRARY_PATH=$PWD/lib, it ran correctly.
+
+---
+
+## Feature 5: Documentation & Installation
+
+**Summary:** Two man pages (`mystrfunctions.3` and `myfilefunctions.3`) were written in groff format and stored in `man/man3/`. They can be previewed with `man -l man/man3/mystrfunctions.3`. The Makefile has an `install` target that copies the executable to `/usr/local/bin/client`, the library to `/usr/local/lib`, and the man pages to `/usr/local/share/man/man3`. After `sudo make install`, `client` runs from any folder and `man mystrfunctions` shows the documentation.
